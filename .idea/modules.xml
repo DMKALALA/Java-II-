@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-II-.iml" filepath="$PROJECT_DIR$/.idea/Java-II-.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labs/Labs.iml" filepath="$PROJECT_DIR$/Labs/Labs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NEW_NIO_Path_File_Complete/NEW_NIO_Path_File_Complete.iml" filepath="$PROJECT_DIR$/NEW_NIO_Path_File_Complete/NEW_NIO_Path_File_Complete.iml" />
+    </modules>
+  </component>
+</project>
