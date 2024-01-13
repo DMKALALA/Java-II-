@@ -20,10 +20,10 @@ public class ProductWriter {
         String Description = "";
         double Cost = 0;
         do{
-            ID = SafeInput.getNonZeroLenString(in,"What is your ID [6 digits]") ;
-            Name = SafeInput.getNonZeroLenString(in,"What is your first name") ;
-            Description = SafeInput.getNonZeroLenString(in,"Give a description of the item") ;
-            Cost = SafeInput.getDouble(in,"What is the the price of the object ") ;
+            ID = SafeInput.getNonZeroLenString(in,"What is your product ID [6 digits]?") ;
+            Name = SafeInput.getNonZeroLenString(in,"What type of product is this?") ;
+            Description = SafeInput.getNonZeroLenString(in,"Give a description of the item.") ;
+            Cost = SafeInput.getDouble(in,"What is the the price of the product?") ;
 
             person = ID + ", " + Name + ", " +Description +", " + Cost;
 

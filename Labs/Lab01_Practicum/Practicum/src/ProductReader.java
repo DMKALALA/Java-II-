@@ -81,7 +81,7 @@ public class ProductReader
                         name = fields[1].trim();
                         description  = fields[2].trim();
                         cost       = Double.parseDouble(fields[3].trim());
-                        System.out.printf("\n%-8s%-25s%-25s%-6.2f", id, name, description, cost);
+                        System.out.printf("\n%-8s%-25s%-25s%-6.1f", id, name, description, cost);
                     }
                     else
                     {
