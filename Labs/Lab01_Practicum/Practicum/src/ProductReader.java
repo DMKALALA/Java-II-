@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 import static java.nio.file.StandardOpenOption.CREATE;
 
-public class PersonReader {
+public class ProductReader
+{
     public static void main(String[] args)
     {
 
@@ -18,18 +19,18 @@ public class PersonReader {
         /*
 
         Here is the data file we are reading:
-        000001, Bilbo, Baggins, Esq., 1060
-        000002, Frodo, Baggins, Esq., 1120
-        000003, Samwise, Gamgee, Esq., 1125
-        000004, Peregrin, Took, Esq., 1126
-        000005, Meridoc, Brandybuck, Esq., 1126
+        000001, Pipeweed, Long Bottom Leaf, 600.0
+        000002, Lembas, Elven Wayfare Bread, 200.0
+        000003, Wine, Woodland Elf Wine, 400.0
+        000004, Mushrooms, Farmer Took’s Finest, 125.0
+        000005, Mithril, Enchanted Dwarven Armor, 3000.0
 
         */
 
-        final int FIELDS_LENGTH = 5;
+        final int FIELDS_LENGTH = 4;
 
-        String id, firstName, lastName, title;
-        int yob;
+        String id, name, description;
+        double cost;
 
         try
         {
@@ -61,8 +62,8 @@ public class PersonReader {
                 }
                 reader.close(); // must close the file to seal it and flush buffer
                 System.out.println("\n\nData file read!\n");
-                System.out.println("ID#     Firstname                Lastname                 Title   YOB");
-                System.out.println("====================================================================== ");
+                System.out.println("ID#     Name                     Description              Cost   ");
+                System.out.println("=================================================================");
                 // Now process the lines in the arrayList
                 // Split the line into the fields by using split with a comma
                 // use trim to remove leading and trailing spaces
@@ -77,11 +78,10 @@ public class PersonReader {
                     if(fields.length == FIELDS_LENGTH)
                     {
                         id        = fields[0].trim();
-                        firstName = fields[1].trim();
-                        lastName  = fields[2].trim();
-                        title     = fields[3].trim();
-                        yob       = Integer.parseInt(fields[4].trim());
-                        System.out.printf("\n%-8s%-25s%-25s%-6s%6d", id, firstName, lastName, title, yob);
+                        name = fields[1].trim();
+                        description  = fields[2].trim();
+                        cost       = Double.parseDouble(fields[3].trim());
+                        System.out.printf("\n%-8s%-25s%-25s%-6.2f", id, name, description, cost);
                     }
                     else
                     {
