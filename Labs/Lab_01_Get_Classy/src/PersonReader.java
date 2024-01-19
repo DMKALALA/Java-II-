@@ -1,2 +1,7 @@
-package src;public class PersonReader {
+
+
+public class PersonReader {
+    public static void main(String[] args) {
+
+    }
 }
