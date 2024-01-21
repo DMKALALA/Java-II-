@@ -1,4 +1,4 @@
-
+import java.util.Calendar;
 
 public class Person {
 
@@ -42,6 +42,10 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public String fullName() {
+        return this.firstName + "                " + this.lastName;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -50,12 +54,28 @@ public class Person {
         this.title = title;
     }
 
+    public String formalName() {
+        return this.title +"                "+ fullName();
+    }
+
     public int getYOB() {
         return YOB;
     }
 
     public void setYOB(int YOB) {
         this.YOB = YOB;
+    }
+    public String getAge(){
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        return  String.valueOf(currentYear - YOB);
+    }
+
+    public String getAge(int year){
+        return String.valueOf(year - this.YOB);
+    }
+
+    public String toCSVDataRecord(){
+        return this.IDNum + "," + this.firstName + "," + this.lastName + "," + this.title + "," + this.YOB;
     }
 
     @Override

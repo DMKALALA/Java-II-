@@ -1,5 +1,3 @@
-
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,43 +10,23 @@ class PersonTest {
     }
 
     @Test
-    void getIDNum() {
+    void fullName() {
     }
 
     @Test
-    void setIDNum() {
+    void formalName() {
     }
 
     @Test
-    void getFirstName() {
+    void getAge() {
     }
 
     @Test
-    void setFirstName() {
+    void testGetAge() {
     }
 
     @Test
-    void getLastName() {
-    }
-
-    @Test
-    void setLastName() {
-    }
-
-    @Test
-    void getTitle() {
-    }
-
-    @Test
-    void setTitle() {
-    }
-
-    @Test
-    void getYOB() {
-    }
-
-    @Test
-    void setYOB() {
+    void toCSVDataRecord() {
     }
 
     @Test
