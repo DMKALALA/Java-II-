@@ -67,7 +67,7 @@ public class Person {
 
     public String genIDNum() {
         String newID = "" + IDSeed;
-        while (newID.length()<8){
+        while (newID.length()<6){
             newID = "0" + newID;
         }
         IDSeed++;

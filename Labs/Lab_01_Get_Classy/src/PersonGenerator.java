@@ -38,7 +38,7 @@ public class PersonGenerator {
 
 
             File workingDirectory = new File(System.getProperty("user.dir"));
-            Path file = Paths.get(workingDirectory.getPath() + "\\Labs\\Lab_01_Get_Classy\\PersonTestData.txt");
+            Path file = Paths.get(workingDirectory.getPath() + "\\src\\PersonTestData.txt");
 
             try
             {
