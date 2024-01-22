@@ -13,45 +13,32 @@ public class PersonGenerator {
 
         public static void main(String[] args) {
             Scanner in = new Scanner(System.in);
+            ArrayList<Person> data = new ArrayList<>();
 
-            Person denis = new Person("00001","Denis","Kalala","ESQ",1999);
-            String name = denis.fullName();
-            System.out.println(name);
-            name = denis.formalName();
-            System.out.println(name);
-            /*
-            ArrayList<String> data = new ArrayList<>();
-            Scanner in = new Scanner(System.in);
             boolean done = false;
-
-//        variables
-            String person = "";
-            String ID = "";
-            String firstName ="";
-            String lastName = "";
-            String title = "";
-            int YOB = 0;
             do{
-                ID = SafeInput.getNonZeroLenString(in,"What is your ID [6 digits]") ;
-                firstName = SafeInput.getNonZeroLenString(in,"What is your first name") ;
-                lastName = SafeInput.getNonZeroLenString(in,"What is your last name") ;
-                title = SafeInput.getNonZeroLenString(in,"What is your Title?");
-                YOB = SafeInput.getRangedInt(in,"What is the date of your birth ",1000,3000) ;
+//              String ID = SafeInput.getNonZeroLenString(in,"What is your ID [6 digits]") ;
+                String firstName = SafeInput.getNonZeroLenString(in,"What is your first name") ;
+                String lastName = SafeInput.getNonZeroLenString(in,"What is your last name") ;
+                String title = SafeInput.getNonZeroLenString(in,"What is your Title?");
+                int YOB = SafeInput.getRangedInt(in,"What is the date of your birth ",1000,3000) ;
 
-                person = ID + ", " + firstName + ", " +lastName +", " + title +", "+ YOB ;
+                Person person = new Person(firstName, lastName, title, YOB);
 
                 data.add(person);
-
                 done = SafeInput.getYNConfirm(in,"Are you done adding data?");
+                System.out.println();
+
             }while (!done);
 
-//        for(String people:data){
-//            System.out.println(people);
-//
-//        }
+            for (Person names:data){
+                System.out.println(names.toCSVDataRecord());
+            }
+
+
 
             File workingDirectory = new File(System.getProperty("user.dir"));
-            Path file = Paths.get(workingDirectory.getPath() + "\\Labs\\Lab01_Practicum\\Practicum\\src\\PersonTestData.txt");
+            Path file = Paths.get(workingDirectory.getPath() + "\\Labs\\Lab_01_Get_Classy\\PersonTestData.txt");
 
             try
             {
@@ -62,12 +49,11 @@ public class PersonGenerator {
 
                 // Finally can write the file LOL!
 
-                for(String text : data)
+                for(Person text : data)
                 {
-                    writer.write(text, 0, text.length());  // stupid syntax for write rec
-                    // 0 is where to start (1st char) the write
-                    // rec. length() is how many chars to write (all)
-                    writer.newLine();  // adds the new line
+                    String personData = text.toCSVDataRecord(); // Assuming toCSVDataRecord() returns a CSV string
+                    writer.write(personData, 0, personData.length());
+                    writer.newLine();
 
                 }
                 writer.close(); // must close the file to seal it and flush buffer
@@ -78,7 +64,7 @@ public class PersonGenerator {
                 e.printStackTrace();
             }
 
-             */
+
         }
 
 }
