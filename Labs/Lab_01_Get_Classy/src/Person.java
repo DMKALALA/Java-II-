@@ -113,8 +113,7 @@ public class Person {
         this.YOB = YOB;
     }
 
-
-
-
-
+    public String getIDNum() {
+        return IDNum;
+    }
 }

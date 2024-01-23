@@ -32,8 +32,6 @@ public class ProductGenerater {
             System.out.println(names.toCSVDataRecord());
         }
 
-
-
         File workingDirectory = new File(System.getProperty("user.dir"));
         Path file = Paths.get(workingDirectory.getPath() + "\\src\\ProductTestData.txt");
 
@@ -60,7 +58,6 @@ public class ProductGenerater {
         {
             e.printStackTrace();
         }
-
 
     }
 }
