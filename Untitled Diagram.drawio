@@ -1,9 +1,26 @@
-<mxfile host="app.diagrams.net" modified="2024-01-23T04:24:03.691Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" version="22.1.21" etag="5XH6VpdmAlMlWqrOy735" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-23T05:10:18.752Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="gYhwG4sG-yXpoiIh7czN" version="22.1.21" type="github">
   <diagram name="Page-1" id="vMeBgGCZccvurcpqMLYN">
-    <mxGraphModel>
+    <mxGraphModel dx="1723" dy="4230" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="xYTbwwU6hNYQ7n4Jch0m-3" value="Product" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="-3430" width="710" height="930" as="geometry">
+            <mxRectangle x="310" y="150" width="140" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xYTbwwU6hNYQ7n4Jch0m-4" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;- IDNum: String&lt;br&gt;- name: String&lt;br&gt;- description: String&lt;br&gt;- Cost: double&lt;br&gt;- IDSeed: int (static)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="xYTbwwU6hNYQ7n4Jch0m-3">
+          <mxGeometry x="265" y="110" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="xYTbwwU6hNYQ7n4Jch0m-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;+ Product(IDNum: String, name: String, Description: String, Cost: double)&lt;br&gt;+ Product(name: String, Description: String, Cost: double)&lt;/font&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ toCSVDataRecord(): String&lt;br&gt;+ setIDSeed(IDSeed: int): void (static)&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ getIDSeed(): int (static)&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ genIDNum(): String&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ toString(): String&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ getIDNum(): String&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ setIDNum(IDNum: String): void&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ getName(): String&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ setName(name: String): void&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ getDescription(): String&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ setDescription(description: String): void&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ getCost(): double&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+ setCost(cost: double): void&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="xYTbwwU6hNYQ7n4Jch0m-3">
+          <mxGeometry x="50" y="525" width="610" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="xYTbwwU6hNYQ7n4Jch0m-6" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xYTbwwU6hNYQ7n4Jch0m-3" target="xYTbwwU6hNYQ7n4Jch0m-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="290" as="sourcePoint" />
+            <mxPoint x="440" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
