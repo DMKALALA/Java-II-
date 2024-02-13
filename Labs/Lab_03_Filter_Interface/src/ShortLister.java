@@ -53,7 +53,7 @@ public class ShortLister
                 wordList = ShortWordFilter.collectAll(lines, new ShortWordFilter());
 
                 System.out.print("\n\n\t---------------------------------------------------------");
-                System.out.println("\n\tThe filter to display short worf from the file:");
+                System.out.println("\n\tThe filter to display short word from the file:");
                 System.out.print("\t---------------------------------------------------------\n");
                 for(Object tempobj : wordList) System.out.println( "\t"+ ((String)tempobj));
 
