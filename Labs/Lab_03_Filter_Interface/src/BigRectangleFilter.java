@@ -1,12 +1,28 @@
-import java.awt.Rectangle;
+import java.awt.*;
+import java.util.ArrayList;
 
-public class BigRectangleFilter implements Filter {
+public class BigRectangleFilter implements Filter{
+
     @Override
     public boolean accept(Object x) {
-        if (x instanceof Rectangle) {
-            Rectangle rectangle = (Rectangle) x;
-            return (rectangle.getWidth() + rectangle.getHeight()) * 2 > 10;
-        }
+
+        Rectangle rec=(Rectangle)x;
+        double perimeter=2*(rec.height+rec.width); // calculate perimeter
+        if(perimeter>10)
+            return true;
         return false;
     }
+
+    public static ArrayList<Object> collectAll(ArrayList<Object> rects, Filter f){
+
+        ArrayList<Object> all=new ArrayList<Object>();
+        f=new BigRectangleFilter();
+        for(Object x:rects)
+        {
+            if(f.accept(x))
+                all.add(x);
+        }
+        return all;
+    }
+
 }

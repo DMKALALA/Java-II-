@@ -1,11 +1,40 @@
-import javax.swing.*;
 
-public class ShortWordFilter implements Filter {
-    @Override
-    public boolean accept(Object x) {
-        if (x instanceof String) {
-            return ((String) x).length() < 5;
-        }
+import java.util.ArrayList;
+
+
+public class ShortWordFilter implements Filter
+{
+
+
+    private String word;
+
+    ShortWordFilter(){}
+
+    ShortWordFilter(String word)
+    {
+        this.word = word;
+    }
+
+    public void setWord(String word)
+    {
+        this.word = word;
+    }
+
+    public String getWord()
+    {
+        return word;
+    }
+
+    public boolean accept(Object arg)
+    {
+        if (( (String) arg ).length() < 5)  return true;
         return false;
+    }
+
+    public static  ArrayList<Object> collectAll(ArrayList<Object> inputString, Filter f)
+    {
+        ArrayList<Object> resultList = new ArrayList<>();
+        for (Object word : inputString) if(f.accept(word)) resultList.add(word);
+        return resultList;
     }
 }
