@@ -1,42 +1,35 @@
-public class Worker extends Person {
+public class Worker extends Person{
     private double hourlyPayRate;
 
-    public Worker(String firstName, String lastName, String title, int YOB, double hourlyPayRate) {
-        super(firstName, lastName, title, YOB);
+    public Worker(String firstname, String lastname, String title, String ID, int YOB, double hourlyPayRate ) {
+        super(firstname, lastname, title, ID, YOB);
         this.hourlyPayRate = hourlyPayRate;
     }
 
-    public double calculateWeeklyPay(double hoursWorked) {
-        double regularHours = Math.min(40, hoursWorked);
-        double overtimeHours = Math.max(0, hoursWorked - 40);
-        double totalPay = (regularHours * hourlyPayRate) + (overtimeHours * hourlyPayRate * 1.5);
-        return totalPay;
+    private double hoursWorked;
+
+    public double getHoursWorked() {
+        return hoursWorked;
     }
 
-    public String displayWeeklyPay(double hoursWorked) {
-        double regularHours = Math.min(40, hoursWorked);
-        double overtimeHours = Math.max(0, hoursWorked - 40);
-        double regularPay = regularHours * hourlyPayRate;
-        double overtimePay = overtimeHours * hourlyPayRate * 1.5;
-        double totalPay = regularPay + overtimePay;
-        return String.format("Weekly Pay: Total=%.2f, Regular=%.2f (%.2f hours), Overtime=%.2f (%.2f hours)",
-                totalPay, regularPay, regularHours, overtimePay, overtimeHours);
-    }
-    public String toCSVDataRecord(){
-        return  getFormalName() +  "," + getIDNum()  +  "," + getYOB();
+    public void setHoursWorked(double hoursWorked) {
+        this.hoursWorked = hoursWorked;
     }
 
-    public double getHourlyPayRate() {
-        return hourlyPayRate;
+    public double calculateWeeklyPay(double hoursWorked){
+        if(hoursWorked <= 40){
+            return hoursWorked*hourlyPayRate;
+        }else{
+            return (hourlyPayRate*1.5)*hoursWorked;
+        }
     }
 
-    @Override
-    public String getFormalName() {
-        return super.getFormalName();
+    public String displayWeeklyPay(double hoursWorked){
+        if(hoursWorked <= 40) {
+            return "Regular Pay: "+(hoursWorked*hourlyPayRate)+"("+hoursWorked+ " hours) Overtime: 0.0(0.0 hours) " + "Total: " + (hoursWorked*hourlyPayRate)+"("+hoursWorked+ " hours)";
+        }else{
+            return "Regular Pay: "+(40*hourlyPayRate)+"(40.0 hours) Overtime: " +((hoursWorked-40)*hourlyPayRate)+"("+(hoursWorked-40) + " hours) " + "Total: " + (hoursWorked*hourlyPayRate)+"("+hoursWorked+ " hours)";
+        }
     }
 
-    @Override
-    public int getYOB() {
-        return super.getYOB();
-    }
 }

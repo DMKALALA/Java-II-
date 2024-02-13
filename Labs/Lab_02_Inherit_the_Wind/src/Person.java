@@ -1,73 +1,110 @@
+import java.time.Year;
+
+
 public class Person {
-    private String firstName;
-    private String lastName;
-    private String IDNum;
+    private String firstname;
+    private String lastname;
     private String title;
+    private String ID;
     private int YOB;
-    static private int IDSeed = 1;
 
-    public Person(String firstName, String lastName, String IDNum, String title, int YOB) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.IDNum = IDNum;
+    public Person(String firstname, String lastname, String title, String ID, int YOB) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.title = title;
+        this.ID = ID;
         this.YOB = YOB;
     }
-    public Person(String firstName,String lastName,String title, int YOB ){
-        this.IDNum = this.genIDNum();
-        this.firstName = firstName;
-        this.lastName = lastName;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
         this.title = title;
-        this.YOB = YOB;
-
-
     }
 
-
-    public static void setIDSeed(int IDSeed) {
-        Person.IDSeed = IDSeed;
-    }
-    public static int getIDSeed() {
-        return IDSeed;
+    public String getID() {
+        return ID;
     }
 
-    public String genIDNum() {
-        String newID = "" + IDSeed;
-        while (newID.length()<3){
-            newID = "0" + newID;
-        }
-        IDSeed++;
-        return newID;
-    }
-    public String toCSVDataRecord(){
-        return  getFormalName() +  "," + getIDNum()  +  "," + getYOB();
-    }
-    public String fullName() {
-        return firstName + " " + lastName;
-    }
-
-    public String formalName() {
-        return title + " " + fullName();
-    }
-    public String getFormalName() {
-        return title + "," + firstName + "," + lastName;
-    }
-
-    public String getIDNum() {
-        return IDNum;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public int getYOB() {
         return YOB;
     }
 
-
-    public int getAge() {
-        int currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
-        return currentYear - YOB;
+    public void setYOB(int YOB) {
+        this.YOB = YOB;
     }
 
-    public int getAge(int year) {
-        return year - YOB;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", title='" + title + '\'' +
+                ", ID='" + ID + '\'' +
+                ", YOB=" + YOB +
+                '}';
     }
+
+    /**
+     * Method to get the full name from the person object
+     * @return return the first and last names as a full name string
+     */
+    public String getfullname(){
+        return firstname + " "+ lastname;
+    }
+
+    /**
+     * Method to get the formal name from the person object
+     * @return return the title, first, and last name as a formal name string
+     */
+    public String getformalname(){
+        return title + " " + firstname + " " + lastname;
+    }
+
+    /**
+     * Method to get the age as an int assuming that it is for the current year
+     * @return the current age
+     */
+    public int getAge(){
+        return Integer.parseInt(Year.now().toString())-YOB;
+    }
+
+    /**
+     * @param year the year that you want to use to determine the age at that time
+     * @return
+     */
+    public int getAge(int year){
+        return year-YOB;
+    }
+
+    /**
+     *
+     * @return Returns object data in CSV format
+     */
+    public String toCSVRecord(){
+        return ID + ", " + firstname + ", " + lastname + ", " + title + ", " + YOB;
+    }
+
 }
