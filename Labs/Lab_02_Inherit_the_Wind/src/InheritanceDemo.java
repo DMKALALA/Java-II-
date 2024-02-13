@@ -1,14 +1,33 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class InheritanceDemo {
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         ArrayList<Worker> workers = new ArrayList<>();
-        workers.add(new Worker("John", "Doe", "001", "Mr.", 1980, 20.0));
-        workers.add(new Worker("Jane", "Doe", "002", "Mrs.", 1985, 25.0));
-        workers.add(new Worker("Jim", "Smith", "003", "Mr.", 1975, 30.0));
-        workers.add(new SalaryWorker("Alice", "Johnson", "004", "Ms.", 1990, 15.0, 60000));
-        workers.add(new SalaryWorker("Bob", "Williams", "005", "Mr.", 1982, 18.0, 80000));
-        workers.add(new SalaryWorker("Carol", "Brown", "006", "Dr.", 1988, 12.0, 90000));
+        boolean done = false;
+
+
+        do {
+            String firstName = SafeInput.getNonZeroLenString(in, "What is your first name");
+            String lastName = SafeInput.getNonZeroLenString(in, "What is your last name");
+            String title = SafeInput.getNonZeroLenString(in, "What is your Title?");
+            int YOB = SafeInput.getRangedInt(in, "What is the date of your birth ", 1000, 3000);
+            double hourlyPayRate = SafeInput.getDouble(in, "What is your hourly pay rate");
+            String workerType = SafeInput.getNonZeroLenString(in, "What type of worker? [SalaryWorker or Worker]");
+
+            if (workerType.equalsIgnoreCase("worker")) {
+                Worker worker = new Worker(firstName, lastName, title, YOB, hourlyPayRate);
+                workers.add(worker);
+            } else if (workerType.equalsIgnoreCase("salary worker")) {
+                double hoursWorked = SafeInput.getDouble(in, "What is your hours worked");
+                SalaryWorker salaryWorker = new SalaryWorker(firstName, lastName, title, YOB, hourlyPayRate, annualSalary);
+                workers.add(salaryWorker);
+            }
+
+            done = SafeInput.getYNConfirm(in, "Are you done adding data?");
+            System.out.println();
+        } while (!done);
 
         int[] weeklyHours = {40, 50, 40};
 
@@ -16,9 +35,12 @@ public class InheritanceDemo {
             System.out.println("Week " + week + " Pay:");
             for (Worker worker : workers) {
                 double hoursWorked = weeklyHours[week - 1];
-                System.out.println(worker.formalName() + ": " + worker.displayWeeklyPay(hoursWorked));
+                System.out.println(worker.toCSVDataRecord() + ": " + worker.displayWeeklyPay(hoursWorked));
             }
             System.out.println();
         }
+
+
+
     }
 }
