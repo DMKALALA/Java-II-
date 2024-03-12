@@ -172,14 +172,14 @@ public class PizzaGUIFrame extends JFrame {
         receiptBuilder.append(crustSelect).append(", ").append(sizeSelect).append("             $").append(String.format("%.2f", sizePrice)).append("\n");
 
         for (String topping : selectedToppings) {
-            receiptBuilder.append(topping).append("             $1.00\n");
+            receiptBuilder.append(topping).append("                $1.00\n");
         }
 
-        receiptBuilder.append("Sub-total:             $").append(String.format("%.2f", subtotal)).append("\n");
-        receiptBuilder.append("Tax:             $").append(String.format("%.2f", tax)).append("\n");
-        receiptBuilder.append("------------------------------\n");
-        receiptBuilder.append("Total:             $").append(String.format("%.2f", total)).append("\n");
-        receiptBuilder.append("==============================");
+        receiptBuilder.append("Sub-total:                          $").append(String.format("%.2f", subtotal)).append("\n");
+        receiptBuilder.append("Tax:                                $").append(String.format("%.2f", tax)).append("\n");
+        receiptBuilder.append("--------------------------------------------------------------------\n");
+        receiptBuilder.append("Total:                      $").append(String.format("%.2f", total)).append("\n");
+        receiptBuilder.append("========================================================================");
 
         orderTextArea.setText(receiptBuilder.toString());
         orderTextArea.setText(receiptBuilder.toString());

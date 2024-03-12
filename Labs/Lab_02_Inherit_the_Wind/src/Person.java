@@ -1,6 +1,6 @@
+import java.time.LocalDate;
+import java.time.Period;
 import java.time.Year;
-
-
 public class Person {
     private String firstname;
     private String lastname;
@@ -87,8 +87,10 @@ public class Person {
      * Method to get the age as an int assuming that it is for the current year
      * @return the current age
      */
-    public int getAge(){
-        return Integer.parseInt(Year.now().toString())-YOB;
+    public int getAge() {
+        LocalDate today = LocalDate.now();
+        LocalDate birthday = LocalDate.of(YOB, 1, 1); // Assuming birthday on January 1st of the given year
+        return Period.between(birthday, today).getYears();
     }
 
     /**
